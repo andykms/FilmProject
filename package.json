@@ -1,0 +1,51 @@
+{
+  "name": "filmproject",
+  "version": "1.0.0",
+  "description": "Это пример проекта для познания всемогущего TypeScript! Автор: andykms",
+  "homepage": "https://github.com/andykms/FilmProject#readme",
+  "bugs": {
+    "url": "https://github.com/andykms/FilmProject/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andykms/FilmProject.git"
+  },
+  "license": "ISC",
+  "author": "andykms",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve",
+    "build:dev": "tsc src/index.ts --sourceMap",
+    "watch": "tsc src/index.ts --watch",
+    "lint": "eslint src",
+    "fix": "eslint --fix src",
+    "start": "webpack-dev-server --mode=development --open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@eslint/js": "^9.22.0",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.85.1",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "core-js": "^3.41.0"
+  }
+}
