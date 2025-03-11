@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -15,7 +16,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.tsx'],
   },
   output: {
     filename: 'main.js',
@@ -29,11 +30,19 @@ module.exports = {
 
     open: true // сайт будет открываться сам при запуске npm run dev
   },
-  module: { rules: [{ test: /\.ts?$/, exclude: ['/node_modules/', /\.(d.ts)$/], use: { loader: 'babel-loader', options: { presets: ['@babel/preset-env', '@babel/preset-typescript'] } } }, 
+  module: { rules: [{ test: /\.tsx?$/, exclude: ['/node_modules/', /\.(d.ts)$/], use: { loader: 'babel-loader', options: { presets: ['@babel/preset-env', '@babel/preset-typescript'] } } }, 
   {
     // регулярное выражение, которое ищет все файлы с такими расширениями
     test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
     type: 'asset/resource'
+  },
+  {
+    test: /\.scss$/,
+    use: [
+      MiniCssExtractPlugin.loader, // Извлекает CSS в отдельные файлы
+      'css-loader', // Переводит CSS в CommonJS
+      'sass-loader', // Компилирует SCSS в CSS
+    ],
   },
   ] },
   plugins: [
@@ -41,5 +50,13 @@ module.exports = {
       template: './src/index.html' // путь к файлу index.html
     }),
     new CleanWebpackPlugin(),
-  ] ,
+    new MiniCssExtractPlugin({
+      filename: 'styles.min.css', // Имя итогового CSS файла
+    }),
+  ],
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(), // Минифицирует CSS
+    ],
+  },
 };

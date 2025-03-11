@@ -1,1 +1,0 @@
-console.log("Ароматные цветчоки чочки".split(" ").map((function(o){return o.charAt(0).toUpperCase()+o.slice(1)})).join(" "));
