@@ -1,4 +1,9 @@
-body {
-  background-color: lightblue;
-  font-family: Arial, sans-serif;
-}
+@import url(./style/base/font.scss);
+@import url(./style/base/variables.scss);
+@import url(./style/components/buttons.scss);
+@import url(./style/components/forms.scss);
+@import url(./style/layout/header.scss);
+@import url(./style/layout/main.scss);
+@import url(./style/layout/page.scss);
+@import url(./style/components/svg.scss);
+@debug "SCSS is being compiled!";

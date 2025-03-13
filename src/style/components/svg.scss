@@ -1,0 +1,43 @@
+
+.header__logo {
+  width: 160px;
+  height: 40px;
+  fill: #FFF;
+}
+
+.header__cart-container {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.header__cart {
+  width: inherit;
+  height: inherit;
+  fill: var(--cart-background);
+}
+
+.header__cart:hover {
+  fill: var(--cart-hover-background);
+}
+
+.header__cart-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;;
+  position: absolute;
+  z-index: 1;
+  inset-inline-end: -2px;
+  inset-block-start: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--cart-count-background);
+  font-family: var(--main-font-family);
+  font-size: 10px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+
+
